@@ -1,0 +1,92 @@
+
+	<div class="member_section grid_12">
+		<h2>Officers</h2>
+		<hr class="soften">
+	</div>
+	
+		<% @positions.each_with_index do |pos, ranking| %>
+		<% if (Position.find_by_ranking(ranking + 1)) %>
+			<% @mem = Member.find_by_id(pos.member_id)%>
+		<% end %>
+		
+		<div class="officer grid_4">
+			<div class="title">
+				<%= pos.title %>
+			</div>
+			<% if @mem.picture_url %>
+				<img src=<%= @mem.picture_url%>>
+			<% else %>
+				<img src="/assets/default_pic.jpg">
+			<% end %>
+			<br />
+			<ul class="unbulleted details">
+				<li>
+					<%= @mem.name %>
+				</li>
+				<li>
+				<a href="mailto:<%= @mem.email %>"><%= @mem.email %></a>
+				</li>
+			</ul>
+		</div>
+	
+		<% end %>
+
+<div class="member_section grid_12">
+	<h2>Coaches</h2>
+	<hr class="soften">
+</div>
+
+	<% @coaches.each do |c|%>
+	<% @coach = c %>
+	<div class="member grid_3">
+		<% if !@coach.picture_url.nil? %>
+				<img src=<%= @coach.picture_url%>>
+			<% if @coach.picture_url.empty? %>
+				<img src="/assets/default_pic.jpg">
+			<% end %>
+		<% else%>
+				<img src="/assets/default_pic.jpg">		
+		<% end %>
+		<br />
+		<ul class="unbulleted details">
+			<li>
+				<%= @coach.name %>
+			</li>
+		</ul>
+	</div>
+	<div class="grid_9 details">
+		<%= @coach.bio %>
+	</div>
+	<% end %>
+
+<div class="member_section grid_12">
+	<h2>Members</h2>
+	<hr class="soften">
+</div>
+
+	<% @members.each do |m|%>
+	<% @mem = m %>
+	<div class="member grid_3">
+		<% if !@mem.picture_url.nil? %>
+				<img src=<%= @mem.picture_url%>>
+			<% if @mem.picture_url.empty? %>
+				<img src="/assets/default_pic.jpg">
+			<% end %>
+		<% else%>
+				<img src="/assets/default_pic.jpg">		
+		<% end %>
+		<br />
+		<ul class="unbulleted details">
+			<li>
+				<%= @mem.name %>
+			</li>
+		</ul>
+	</div>
+	<% end %>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	
+	
+	
+	

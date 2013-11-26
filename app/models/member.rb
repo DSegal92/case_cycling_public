@@ -1,19 +1,21 @@
 class Member < ActiveRecord::Base
-  attr_accessible :is_admin, :is_officer, :name, :picture_url, :standing, :email, :password, :password_confirmation, :is_verified, :equipment_id
+  attr_accessible :is_admin, :is_officer, :name, :picture_url, :standing, :email, :password, :password_confirmation, :is_verified, :equipment_id, :position_id, :position_ids
   attr_accessor :password
   before_save :encrypt_password
 
   has_and_belongs_to_many :equipment
   has_many :positions
 
-  validates_confirmation_of :password
-  validates_presence_of :name
-  validates_presence_of :password_confirmation
+  validates_confirmation_of :password, :on => :create
+  validates_presence_of :name, :on => :create
+  validates_presence_of :password_confirmation, :on => :create
   validates_presence_of :password, :on => :create
   validates :email,
+        :on => :create,
   			:presence => true,
   			:uniqueness => true,
-  			:format => {:with => /@case.edu/}
+  			:format => {:with => /@case.edu/,
+       }
 
   def self.authenticate(email, password)
   	member = find_by_email(email)

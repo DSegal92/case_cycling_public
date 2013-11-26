@@ -1,4 +1,4 @@
 class Position < ActiveRecord::Base
-  attr_accessible :title
-  belongs_to :member
+  attr_accessible :title, :member_id, :ranking
+  has_one :member
 end
