@@ -1,19 +1,20 @@
 class BlogController < ApplicationController
 	def index
-    @blogs = Blog.all
+    blogs = Blog.all
+    @blogs = Kaminari.paginate_array(blogs).page(params[:page]).per(5)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @exercises }
+      format.json { render json: @blogs }
     end
   end
 
 	def show
-    @exercise = Exercise.find(params[:id])
+    @blog = Blog.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @exercise }
+      format.json { render json: @blog }
     end
   end
 

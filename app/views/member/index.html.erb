@@ -23,7 +23,7 @@
 				<li>
 					<%= @mem.name %>
 				</li>
-				<li>
+				<li class="email">
 				<a href="mailto:<%= @mem.email %>"><%= @mem.email %></a>
 				</li>
 			</ul>
@@ -31,33 +31,6 @@
 	
 		<% end %>
 
-<div class="member_section grid_12">
-	<h2>Coaches</h2>
-	<hr class="soften">
-</div>
-
-	<% @coaches.each do |c|%>
-	<% @coach = c %>
-	<div class="member grid_3">
-		<% if !@coach.picture_url.nil? %>
-				<img src=<%= @coach.picture_url%>>
-			<% if @coach.picture_url.empty? %>
-				<img src="/assets/default_pic.jpg">
-			<% end %>
-		<% else%>
-				<img src="/assets/default_pic.jpg">		
-		<% end %>
-		<br />
-		<ul class="unbulleted details">
-			<li>
-				<%= @coach.name %>
-			</li>
-		</ul>
-	</div>
-	<div class="grid_9 details">
-		<%= @coach.bio %>
-	</div>
-	<% end %>
 
 <div class="member_section grid_12">
 	<h2>Members</h2>
@@ -85,7 +58,38 @@
 	<% end %>
 
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<div class="member_section grid_12">
+	<h2>Coaches</h2>
+	<hr class="soften">
+</div>
+
+	<% @coaches.each do |c|%>
+	<% @coach = c %>
+	<div class="member grid_3">
+		<% if !@coach.picture_url.nil? %>
+				<img src=<%= @coach.picture_url%>>
+			<% if @coach.picture_url.empty? %>
+				<img src="/assets/default_pic.jpg">
+			<% end %>
+		<% else%>
+				<img src="/assets/default_pic.jpg">		
+		<% end %>
+		<br />
+		<ul class="unbulleted details">
+			<li>
+				<%= @coach.name %>
+			</li>
+			<li class="email">
+				<a href="mailto:<%= @coach.email %>"><%= @coach.email %></a>
+			</li>
+		</ul>
+	</div>
+	<div class="grid_9 details">
+		<%= @coach.bio %>
+	</div>
+	<% end %>
+
 	
 	
 	

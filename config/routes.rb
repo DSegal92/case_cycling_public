@@ -1,6 +1,8 @@
 CaseCyclingPublic::Application.routes.draw do
   match 'members' => 'member#index'
-  match 'blog' => 'blog#index'
+  match 'blogs' => 'blog#index'
+  match 'blogs/:id' => 'blog#show'
+  match 'sponsors' => 'sponsors#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

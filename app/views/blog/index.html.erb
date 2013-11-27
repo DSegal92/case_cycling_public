@@ -1,0 +1,17 @@
+<div class="grid_12">
+
+	<%= paginate @blogs %>
+
+	<% @blogs.each do |blog| %>
+		<div class="blog_post">
+			<div class="title">
+				<a href="/blogs/<%= blog.id %>"><%= blog.title %></a>
+			</div>
+			<div class="content">
+				<%= simple_format(blog.contents) %>
+			</div>			
+		</div>
+	<% end %>
+	<%= paginate @blogs %>
+</div>
+

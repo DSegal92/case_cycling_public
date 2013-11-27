@@ -1,0 +1,11 @@
+<% @top_tier.each do |sponsor| %>
+<div class="grid_6 sponsor_big">
+	<a href="<%=sponsor.url%>"><img src="<%=sponsor.picture_url %>" width="465"></a>
+</div>
+<% end %>
+
+<% @second_tier.each do |sponsor| %>
+<div class="grid_4 sponsor_small">
+	<a href="<%=sponsor.url%>"><img src="<%=sponsor.picture_url %>" width="305"></a>
+</div>
+<% end %>
