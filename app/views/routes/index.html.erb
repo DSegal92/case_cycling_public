@@ -1,0 +1,20 @@
+<div class="routes_list">
+    <% @routes.each do |route| %>
+    <div class="grid_5 prefix_1 route">
+        <span class="route_name"><a href="<%=route.url %>"><%=route.name %></a></span>
+        <ul class="unbulleted route_info" >
+            <li>Distance: <%= route.distance %> miles</li>
+            <li>Elevation: <%= route.elevation %>ft</li>
+            
+        </ul>
+        
+            <p>Description: <%= route.description %> </p>
+     
+    </div>
+<% end %>
+</div>
+
+<div class="grid_12 more_blogs">
+    <a href="/routes/new">Add New Route</a>
+</div>
+

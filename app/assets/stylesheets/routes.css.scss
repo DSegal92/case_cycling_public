@@ -1,0 +1,27 @@
+// Place all the styles related to the routes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.route_name{
+	font-family: 'Helvetica Nueue' sans-serif;
+	font-size: 24px;
+}
+
+.route_info{
+	margin-top: -5px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+}
+
+.route{
+	margin: 10px 0;
+
+}
+
+.routes_list{
+	margin-top: 20px;
+}
+
+.add_route{
+	float: right;
+}
