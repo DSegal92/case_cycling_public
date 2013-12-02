@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131126223956) do
+ActiveRecord::Schema.define(:version => 20131202012239) do
 
   create_table "blogs", :force => true do |t|
     t.string   "title"
@@ -140,8 +140,8 @@ ActiveRecord::Schema.define(:version => 20131126223956) do
 
   create_table "routes", :force => true do |t|
     t.string   "name"
-    t.integer  "distance"
-    t.integer  "elevation"
+    t.string   "distance"
+    t.string   "elevation"
     t.string   "url"
     t.text     "description"
     t.boolean  "verified"
@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(:version => 20131126223956) do
     t.string   "url"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "tier"
   end
 
   create_table "sponsorship_offers", :force => true do |t|

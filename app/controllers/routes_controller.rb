@@ -45,8 +45,8 @@ class RoutesController < ApplicationController
 
     route_html = Nokogiri::HTML(open(@route.url))
     @stats = route_html.css(".inline-stats")
-      @route.distance = @stats.children().css("strong")[0].text()
-      @route.elevation = @stats.children().css("strong")[1].text()
+      @route.distance = @stats.children().css("strong")[0].text().gsub(/[^0-9, \., \,]/, '')
+      @route.elevation = @stats.children().css("strong")[1].text().gsub(/[^0-9, \., \,]/, '')
 
     @route.name = route_html.css(".hgroup").children()[1].text()
 

@@ -5,6 +5,8 @@ CaseCyclingPublic::Application.routes.draw do
   match 'sponsors' => 'sponsors#index'
   match 'clothing' => 'clothing#index'
   match 'about' => 'about#index'
+  match 'contact' => 'contact#new'
+  match '/contact/create' => "contact#create"
   
   resources :routes
   # The priority is based upon order of creation:
