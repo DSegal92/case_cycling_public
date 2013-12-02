@@ -9,7 +9,7 @@
 <%= form_for @message, :url => { :action => "create" } do |f| %>
   <div class="field">
     <%= f.label :subject %><br />
-    <%= f.text_field :subject %>
+    <td><%= f.select :subject, options_for_select([["Select One", ""], "General Information", "Sponsorship", "Race Information", "Joining the Team", "Website Questions"]) %></td>
   </div>
 	
 	<div class="field">

@@ -18,7 +18,7 @@ class ContactController < ApplicationController
         email = @message.respond_to_email
         contents = @message.contents
         ContactMailer.newMessage(subject, name, email, contents).deliver
-        format.html { redirect_to "/contact", notice: 'Your message has been sent, thanks for writing!'}
+        format.html { redirect_to "/contact", notice: 'Your message has been sent, thank you for contacting Case Cycling!'}
         format.json { render json: @message, status: :created, location: @message }
       else
         format.html { redirect_to "/contact", notice: 'Unable to send message, please make sure all required fields are filled.' }
