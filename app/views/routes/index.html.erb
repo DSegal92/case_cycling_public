@@ -3,12 +3,12 @@
     <div class="grid_5 prefix_1 route">
         <span class="route_name"><a href="<%=route.url %>"><%=route.name %></a></span>
         <ul class="unbulleted route_info" >
-            <li>Distance: <%= route.distance %> miles</li>
+            <li class="test">Distance: <%= route.distance %> miles</li>
             <li>Elevation: <%= route.elevation %>ft</li>
             
         </ul>
         
-            <p>Description: <%= route.description %> </p>
+            <p class="route_description"><%= route.description %> </p>
      
     </div>
 <% end %>

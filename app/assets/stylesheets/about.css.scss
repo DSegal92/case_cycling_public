@@ -1,0 +1,65 @@
+// Place all the styles related to the about controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sponsorship{
+  font-family: "Georgia", serif !important;
+}
+.header{
+  color: #162a47;
+}
+
+.sub_header{
+  color: #162a47;
+  font-size: 18px;
+}
+
+.descriptor{
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.sponsorship p{
+  font-size: 18px;
+}
+
+.cover{
+  text-align: center;
+}
+
+.cover h1{
+  font-size: 40px;
+}
+
+.quote h1{
+  font-size: 34px;
+  line-height: 42px;
+}
+
+.centered{
+  text-align: center;
+}
+
+.centered_img{
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.sponsorship ul> li{
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.sponsorship ul{
+    margin: 10px 0 20px 0;
+}
+
+#history_1{
+  margin-top: -500px;
+  margin-left: 490px;
+}
+
+#levels_img{
+  margin-top: -820px;
+  margin-left: 550px;
+}
