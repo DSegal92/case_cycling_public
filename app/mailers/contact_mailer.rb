@@ -1,7 +1,10 @@
 class ContactMailer < ActionMailer::Base
-  default from: "from@example.com"
-   def newMessage()
-   
-    mail(to: "dls148@case.edu", :subject => "Test")
+  default from: "postmaster@casecycling.com"
+   def newMessage(subject, name, email, contents)  
+   	@subject = subject
+   	@name = name
+   	@email = email
+   	@contents = contents 
+    mail(to: "contactcasecycling@gmail.com", :subject => "New Email about " + @subject)
   end
 end

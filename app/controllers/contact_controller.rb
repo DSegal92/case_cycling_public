@@ -10,13 +10,18 @@ class ContactController < ApplicationController
 
 	def create
     @message = Message.new(params[:message])
-    ContactMailer.newMessage().deliver
+   
     respond_to do |format|
       if @message.save
-        format.html { redirect_to '/contact', notice: 'message was successfully created.' }
+        subject = @message.subject
+        name = @message.name
+        email = @message.respond_to_email
+        contents = @message.contents
+        ContactMailer.newMessage(subject, name, email, contents).deliver
+        format.html { redirect_to "/contact", notice: 'Your message has been sent, thanks for writing!'}
         format.json { render json: @message, status: :created, location: @message }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to "/contact", notice: 'Unable to send message, please make sure all required fields are filled.' }
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end

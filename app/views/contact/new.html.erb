@@ -1,35 +1,35 @@
-<div class="container_16">
-	<div class="grid_12 prefix_2 suffix_2">
-			<div class="contact_preface">
-			<h3> Thanks for checking out my website. If there's anything on your mind, send me a message and I'll get back to you as soon as possible.</h3>
-		</div>
-	</div>
-	<% if flash[:notice] %>
-	<div class="grid_16">
-		<div class="notice">
-      		<%= flash[:notice] %>   			
-   		</div>
-	</div>
-	<% end %>
-	<div class="grid_14 prefix_2">	
-		<div id="contact_form">
-	
-			<%= form_for @message, :url => { :action => "create" } do |f| %>
-			
-		</div>	 	
-	</div>
-	<div class="grid_16">
-		<br><br>
-		<center>
-			<%= f.submit "Submit", :class => "download" %>
-			<% end %>
-		</center>
-		<br>
-	</div>
-	<div class="grid_3 prefix_12">
-		<div class="required">
-			<h3><span id="imp">*</span> Required Field </h3>
-		</div>
-	</div>
-	<br><br>
+<% if flash[:notice] %>
+<div class="grid_12">
+	<div class="notice">
+     		<%= flash[:notice] %>   			
+   	</div>
 </div>
+<% end %>
+
+<%= form_for @message, :url => { :action => "create" } do |f| %>
+  <div class="field">
+    <%= f.label :subject %><br />
+    <%= f.text_field :subject %>
+  </div>
+	
+	<div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+   <div class="field">
+    <%= f.label :respond_to_email %><br />
+    <%= f.text_field :respond_to_email %>
+  </div>
+
+     <div class="field">
+    <%= f.label :contents %><br />
+    <%= f.text_field :contents %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
