@@ -1,6 +1,6 @@
 class BlogController < ApplicationController
 	def index
-    blogs = Blog.all
+    blogs = Blog.find(:all, :order => "id DESC").select { |b| b.internal == false}
     @blogs = Kaminari.paginate_array(blogs).page(params[:page]).per(5)
 
     respond_to do |format|
