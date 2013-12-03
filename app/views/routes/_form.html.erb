@@ -1,16 +1,22 @@
-<%= form_for(@route) do |f| %>
+<div class="routes_form">
+  <%= form_for(@route) do |f| %>
   <div class="field">
-    <%= f.label :url %><br />
+    <span class="label">Name</span><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <span class="label">URL</span><br />
     <%= f.text_field :url %>
   </div>
 
    <div class="field">
-    <%= f.label :description %><br />
+   <span class="label">Description</span><br />
     <%= f.text_field :description %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", :id => "submit_forms" %>
   </div>
 <% end %>
 
+</div> 

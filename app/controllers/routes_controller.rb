@@ -48,8 +48,9 @@ class RoutesController < ApplicationController
       @route.distance = @stats.children().css("strong")[0].text().gsub(/[^0-9, \., \,]/, '')
       @route.elevation = @stats.children().css("strong")[1].text().gsub(/[^0-9, \., \,]/, '')
 
-    @route.name = route_html.css(".hgroup").children()[1].text()
-
+    if @route.name.empty?
+      @route.name = route_html.css(".hgroup").children()[1].text()
+    end
 
     respond_to do |format|
       if @route.save
