@@ -1,0 +1,25 @@
+
+  <div class="grid_12">
+    <center>
+      
+        </p> 
+        <!-- /info -->
+        <br>
+        <p id="postTitle"><b>Clothing Orders Are Currently:</b> Closed</p><br>
+        <ul id="contentText" class="unbulleted">
+          
+          <li>Thank you to those who participated in the 2013 clothing order.<li>
+          <li>Our next round of orders start at the end of the year.<li>           
+        </ul><br>
+      
+      </center>
+      <div id="slider-three">
+      <% @clothing_items.each do |c| %>
+        <div>
+          <img src="<%= c.picture_url %>" alt="" />
+          <p><%= c.name %><br />
+          </p>                              
+        </div>   
+      <% end %>
+      </div>
+    </div>
