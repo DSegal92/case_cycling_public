@@ -1,3 +1,77 @@
 // Place all the styles related to the contact controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*.field{
+	font-size: 20px;
+	font-family: 'Helvetica Nueue' sans-serif;
+}*/
+.notice{
+	font-family: 'Helvetica Nueue' sans-serif;
+	font-size: 20px;
+	margin-left: 150px;
+}
+
+.form{
+	margin: 60px 0 0 80px;
+}
+
+.label{
+	font-family: 'Helvetica Nueue' sans-serif;
+	font-size: 20px;
+}
+
+.important{
+	color: red;
+}
+
+.required{
+	margin-left: 100px;
+	margin-top: -20px;
+}
+
+#subject{
+	margin-top: -50px;
+	margin-right: 130px;
+	select{
+		width: 406px;
+	}
+	float:right;
+}
+
+#contents{
+	float:right;	
+	margin-top: -40px;
+	margin-right: 130px;
+}
+
+#email{
+	margin-top: 15px;
+}
+
+.textbox_large{
+    font-family: 'Open Sans', sans-serif; 
+    line-height: 14px;
+    width: 400px;
+    height: 207px;
+    font-size: 14px;
+    font-style: normal;
+}
+
+#submit{
+	float: right;
+	font-size: 20px;
+	margin-right: 130px;
+	margin-top: 40px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}

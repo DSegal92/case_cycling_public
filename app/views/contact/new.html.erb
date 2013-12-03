@@ -7,29 +7,38 @@
 <% end %>
 
 <%= form_for @message, :url => { :action => "create" } do |f| %>
-  <div class="field">
-    <%= f.label :subject %><br />
-    <td><%= f.select :subject, options_for_select([["Select One", ""], "General Information", "Sponsorship", "Race Information", "Joining the Team", "Website Questions"]) %></td>
-  </div>
-	
-	<div class="field">
-    <%= f.label :name %><br />
+
+<div class="form cf">
+    <div class="field" id="name">
+     <span class="label">Name</span><span class="important"> *</span><br />
     <%= f.text_field :name %>
   </div>
 
-   <div class="field">
-    <%= f.label :respond_to_email %><br />
+<div class="field" id="subject">
+    <span class="label">Subject</span><span class="important"> *</span><br />
+    <td><%= f.select :subject, options_for_select([["Select One", ""], "General Information", "Sponsorship", "Race Information", "Joining the Team", "Website Questions"]) %></td>
+  </div>
+
+   <div class="field" id="email">
+     <span class="label">Email Address</span><span class="important"> *</span><br />
     <%= f.text_field :respond_to_email %>
   </div>
 
-     <div class="field">
-    <%= f.label :contents %><br />
-    <%= f.text_field :contents %>
+  <div class="field" id="contents">
+      <span class="label">Contents</span><span class="important"> *</span><br />
+    <%= f.text_area :contents, :id => "message", :class => "textbox_large" %>
   </div>
+</div>
 
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", :id => "submit" %>
   </div>
 <% end %>
+
+
+  <div class="required">
+    <span class="important">*</span><span class="label"> Required</span>
+  </div>
+
 
