@@ -6,8 +6,8 @@
 	
 		<% @positions.each_with_index do |pos, ranking| %>
 		<% if (Position.find_by_ranking(ranking + 1)) %>
-			<% @mem = Member.find_by_id(pos.member_id)%>
-		<% end %>
+		<% if @mem = Member.find_by_id(pos.member_id)%>
+		
 		
 		<div class="officer grid_4">
 			<div class="title">
@@ -27,9 +27,13 @@
 				<a href="mailto:<%= @mem.email %>"><%= @mem.email %></a>
 				</li>
 			</ul>
+			
 		</div>
-	
+
 		<% end %>
+		<% end %>
+		<% end %>
+
 
 
 <div class="member_section grid_12">
