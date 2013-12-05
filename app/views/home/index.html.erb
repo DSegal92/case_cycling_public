@@ -16,12 +16,11 @@ jQuery(document).ready(function($) {
 
 <div class="carousel">
 	<ul class="bjqs">
+		<% @carousels.each do |c| %>
 		<li>
-			<img src="http://i1278.photobucket.com/albums/y515/CaseCycling/DSC_5838_zpsc599c4c4.jpg" alt="">
+			<img src="<%=c.picture_url%>">
 		</li>
-		<li>
-			<img src="http://i1278.photobucket.com/albums/y515/CaseCycling/DSC_5444_zps00d874b0.jpg" alt="">
-		</li>
+		<% end %>
 	</ul>
 </div> 
 <br />
