@@ -379,3 +379,19 @@ font-size: 11px;
 	background: #000;
 	background: rgba(0, 0, 0, .8);
 }
+
+.clothing_items{
+    border-collapse:collapse;
+    padding:20px;
+    margin:0;
+    width:100%;
+	font-family: 'Open Sans'
+}
+
+.a_visible a{
+	text-decoration: underline;
+}
+
+.clothing_label{
+	margin-top: 30px;
+}
