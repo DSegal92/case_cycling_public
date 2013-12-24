@@ -1,0 +1,58 @@
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=geometry&amp;sensor=false"></script>
+
+<style type="text/css"> 
+#map {width:400px;height:200px;}
+</style> 
+
+<script type='text/javascript'>
+$(document).ready(function() {
+  var trace1_<%= @route.id %> = "<%= @route.map_polyline %>"
+
+    var myOptions_<%= @route.id %> = {
+        zoom: 20,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+    }
+    var map_<%= @route.id %> = new google.maps.Map(document.getElementById("map_<%= @route.id %>"), myOptions_<%= @route.id %>);
+        
+    var trace_<%= @route.id %> = google.maps.geometry.encoding.decodePath(trace1_<%= @route.id %>); 
+    var decodedLevels_<%= @route.id %> = decodeLevels("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+
+    vol_<%= @route.id %> = new google.maps.Polyline({
+        strokeColor: "#FF0000",
+        strokeOpacity: 1.0,
+        strokeWeight: 2,
+        map: map_<%= @route.id %>
+    });
+
+    vol_<%= @route.id %>.setPath(trace_<%= @route.id %>);
+    var bounds_<%= @route.id %> = new google.maps.LatLngBounds();
+	vol_<%= @route.id %>.getPath().forEach(function(LatLng) {
+   bounds_<%= @route.id %>.extend(LatLng);
+});
+map_<%= @route.id %>.fitBounds(bounds_<%= @route.id %>);
+
+})
+
+function decodeLevels(encodedLevelsString) {
+    var decodedLevels = [];
+
+    for (var i = 0; i < encodedLevelsString.length; ++i) {
+        var level = encodedLevelsString.charCodeAt(i) - 63;
+        decodedLevels.push(level);
+    }
+    return decodedLevels;
+}
+</script> 
+
+
+ <div class="grid_5 prefix_1 route">
+        <span class="route_name"><a href="<%=@route.url %>"><%=@route.name %></a></span>
+        <ul class="unbulleted route_info" >
+            <li class="test">Distance: <%= @route.distance %> miles</li>
+            <li>Elevation: <%= @route.elevation %>ft</li>
+            
+        </ul>
+        <div id="map_<%= @route.id %>"></div>
+            <p class="route_description"><%= @route.description %> </p>
+     
+    </div>

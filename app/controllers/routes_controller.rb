@@ -1,5 +1,6 @@
 class RoutesController < ApplicationController
   require 'open-uri'
+  require 'net/http'
   # GET /routes
   # GET /routes.json
   def index
@@ -44,12 +45,24 @@ class RoutesController < ApplicationController
     @route = Route.new(params[:route])
 
     route_html = Nokogiri::HTML(open(@route.url))
-    @stats = route_html.css(".inline-stats")
-      @route.distance = @stats.children().css("strong")[0].text().gsub(/[^0-9, \., \,]/, '')
-      @route.elevation = @stats.children().css("strong")[1].text().gsub(/[^0-9, \., \,]/, '')
+
+    @activity_id = @route.url.split('/').last()
+    @api_url = "https://www.strava.com/api/v3/activities/" + @activity_id + "?access_token=9a3dd1938530a0db29fc42f4eedc4ff975e78190"
+
+    parsed_uri = URI.parse(@api_url)
+    http = Net::HTTP.new(parsed_uri.host, parsed_uri.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    request = Net::HTTP::Get.new(parsed_uri.request_uri)
+    response = http.request(request)
+    parsed_response = JSON.parse(response.body)
+
+    @route.distance = parsed_response["distance"]
+    @route.elevation = parsed_response["total_elevation_gain"]
+    @route.map_polyline = parsed_response["map"]["summary_polyline"]
 
     if @route.name.empty?
-      @route.name = route_html.css(".hgroup").children()[1].text()
+      @route.name = parsed_response["name"]
     end
 
     respond_to do |format|
