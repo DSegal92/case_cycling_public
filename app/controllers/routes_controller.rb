@@ -57,8 +57,8 @@ class RoutesController < ApplicationController
     response = http.request(request)
     parsed_response = JSON.parse(response.body)
 
-    @route.distance = parsed_response["distance"]
-    @route.elevation = parsed_response["total_elevation_gain"]
+    @route.distance = ((parsed_response["distance"].to_f * 0.000621371).round(2)).to_s      #Convert meters to miles
+    @route.elevation = ((parsed_response["total_elevation_gain"] *3.28084).round(2)).to_s   #Convert meters to feet
     @route.map_polyline = parsed_response["map"]["summary_polyline"]
 
     if @route.name.empty?

@@ -1,10 +1,12 @@
 <style type="text/css"> 
-#map {width:400px;height:200px;}
+#map_<%= route.id %> {width:400px;height:200px;}
 </style> 
 
+<% unless route.map_polyline.nil? %>
 <script type='text/javascript'>
 $(document).ready(function() {
-  var trace1_<%= route.id %> = "<%= route.map_polyline %>"
+
+  var trace1_<%= route.id %> = "<%= route.map_polyline.gsub('\\') { '\\\\' } %>"
 
     var myOptions = {
         zoom: 20,
@@ -41,7 +43,7 @@ function decodeLevels(encodedLevelsString) {
     return decodedLevels;
 }
 </script> 
-
+<% end %>
 
  <div class="grid_5 prefix_1 route">
         <span class="route_name"><a href="<%=route.url %>"><%=route.name %></a></span>
@@ -50,7 +52,9 @@ function decodeLevels(encodedLevelsString) {
             <li>Elevation: <%= route.elevation %>ft</li>
             
         </ul>
+        
         <div id="map_<%= route.id %>"></div>
+        
             <p class="route_description"><%= route.description %> </p>
      
     </div>

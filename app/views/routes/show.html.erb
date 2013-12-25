@@ -6,30 +6,30 @@
 
 <script type='text/javascript'>
 $(document).ready(function() {
-  var trace1_<%= @route.id %> = "<%= @route.map_polyline %>"
+     var trace1 = "<%= @route.map_polyline.gsub('\\') { '\\\\' } %>"
 
-    var myOptions_<%= @route.id %> = {
+    var myOptions = {
         zoom: 20,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
     }
-    var map_<%= @route.id %> = new google.maps.Map(document.getElementById("map_<%= @route.id %>"), myOptions_<%= @route.id %>);
+    var map = new google.maps.Map(document.getElementById("map"), myOptions);
         
-    var trace_<%= @route.id %> = google.maps.geometry.encoding.decodePath(trace1_<%= @route.id %>); 
-    var decodedLevels_<%= @route.id %> = decodeLevels("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+    var trace = google.maps.geometry.encoding.decodePath(trace1); 
+    var decodedLevels = decodeLevels("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
 
-    vol_<%= @route.id %> = new google.maps.Polyline({
+    vol = new google.maps.Polyline({
         strokeColor: "#FF0000",
         strokeOpacity: 1.0,
         strokeWeight: 2,
-        map: map_<%= @route.id %>
+        map: map
     });
 
-    vol_<%= @route.id %>.setPath(trace_<%= @route.id %>);
-    var bounds_<%= @route.id %> = new google.maps.LatLngBounds();
-	vol_<%= @route.id %>.getPath().forEach(function(LatLng) {
-   bounds_<%= @route.id %>.extend(LatLng);
+    vol.setPath(trace);
+    var bounds = new google.maps.LatLngBounds();
+vol.getPath().forEach(function(LatLng) {
+   bounds.extend(LatLng);
 });
-map_<%= @route.id %>.fitBounds(bounds_<%= @route.id %>);
+map.fitBounds(bounds);
 
 })
 
@@ -52,7 +52,9 @@ function decodeLevels(encodedLevelsString) {
             <li>Elevation: <%= @route.elevation %>ft</li>
             
         </ul>
-        <div id="map_<%= @route.id %>"></div>
+        <div id="map"></div>
             <p class="route_description"><%= @route.description %> </p>
+            <p><%= @route.map_polyline %></p>
+            <p>{zj|FvaaqNg@`I~MfObLqFfYod@sNsXf@oFrv@oZ~Hgm@rSsNv`@ogAtDgwOpaCnAzY_Sp}Ef@|\\~MpbAz@Pc~@_SkCoFwLnAgh@_I}_A`DyuBkHkdAq_@sDwLc[kC~H{JmF}a@pDaIbVsXjWkMzm@?~z@yzAoApyAkzE}CzOisBkHbBaVnKeLkR_v@{c@wBkHcQg@{c@yJsN}qC{@gY_IgE|EcG|u@a_C?hCfh@oFb`@fOrDve@ka@zJ~MfYjCvBzEkC~RjHlRsDtGaQkCy`@fYoPzTcBf^kW??zJfc@de@zgC|kEnAnvA`IbBdYbe@kCdtOw`@lgA{TzOkH~k@wt@zY{@vGrNfYoZbe@mKwQ|Cf@</p>
      
     </div>
