@@ -6,7 +6,8 @@
 	
 		<% @positions.each_with_index do |pos, ranking| %>
 		<% @ranking = ranking + 1 %>
-		<% if (Position.find_by_ranking(@ranking)) %>
+		
+		<% if pos = Position.find_by_ranking(@ranking) %>
 		<% if @mem = Member.find_by_id(Position.find_by_ranking(@ranking).member_id)%>
 		
 		
