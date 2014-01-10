@@ -3,7 +3,7 @@ ActionMailer::Base.smtp_settings = {
 	:port					=> "587",
 	:domain					=> "app19686117.mailgun.org",
 	:user_name				=> "postmaster@app19686117.mailgun.org",
-	:password				=> "3ljdxg6mc737",
+	:password				=> ENV['MAILGUN_PASSWORD'],
 	:authentication 		=> "plain"
 }
 
