@@ -6,7 +6,7 @@
 	
 		<% @positions.each_with_index do |pos, ranking| %>
 		<% if (Position.find_by_ranking(ranking + 1)) %>
-		<% if @mem = Member.find_by_id(pos.member_id)%>
+		<% if @mem = Member.find_by_id(Position.find_by_ranking(ranking+1).member_id)%>
 		
 		
 		<div class="officer grid_4">
