@@ -1,5 +1,23 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=geometry&amp;sensor=false"></script>
+<script type="text/javascript">	
+function decodeLevels(encodedLevelsString) {
+    var decodedLevels = [];
 
+    for (var i = 0; i < encodedLevelsString.length; ++i) {
+        var level = encodedLevelsString.charCodeAt(i) - 63;
+        decodedLevels.push(level);
+    }
+    return decodedLevels;
+}
+</script>
+
+<% if flash[:notice] %>
+<div class="grid_12">
+	<div class="notice">
+     		<%= flash[:notice] %>   			
+   	</div>
+</div>
+<% end %>
 
  <% @routes.each do |route| %>
     <%= render 'route', :route => route %>

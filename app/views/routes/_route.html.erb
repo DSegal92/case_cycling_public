@@ -33,15 +33,6 @@ map_<%= route.id %>.fitBounds(bounds_<%= route.id %>);
 
 })
 
-function decodeLevels(encodedLevelsString) {
-    var decodedLevels = [];
-
-    for (var i = 0; i < encodedLevelsString.length; ++i) {
-        var level = encodedLevelsString.charCodeAt(i) - 63;
-        decodedLevels.push(level);
-    }
-    return decodedLevels;
-}
 </script> 
 <% end %>
 

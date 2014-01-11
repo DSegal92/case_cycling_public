@@ -67,7 +67,7 @@ class RoutesController < ApplicationController
 
     respond_to do |format|
       if @route.save
-        format.html { redirect_to routes_url, notice: 'Route was successfully created.' }
+        format.html { redirect_to routes_url, notice: 'Your route was submitted successfully, and will be verified by an officer shortly.' }
         format.json { render json: @route, status: :created, location: @route }
       else
         format.html { render action: "new" }

@@ -13,14 +13,8 @@
 	font-size: 18px;
 }
 
-.route_description{
-	font-family: 'Open Sans', sans-serif;
-	font-size: 14px;
-}
-
 .route{
 	margin: 10px 0;
-
 }
 
 .routes_list{
@@ -36,9 +30,23 @@
 }
 
 
-#submit_forms{
-	font-size: 20px;
+#submit_forms{	
 	margin-right: 130px;
 	margin-top: 40px;
 	font-family: 'Open Sans', sans-serif;
+}
+
+#route_description{
+	width: 400px;
+	height: 200px;
+}
+
+.route_field{
+	margin-top: 20px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+}
+
+.route_field input{
+	width: 400px;
 }
