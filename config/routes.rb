@@ -7,6 +7,7 @@ CaseCyclingPublic::Application.routes.draw do
   match 'about' => 'about#index'
   match 'contact' => 'contact#new'
   match '/contact/create' => "contact#create"
+  match '/error' => "error#index"
   match '/404', :to => "error#index"
   
   resources :routes
