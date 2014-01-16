@@ -7,7 +7,7 @@ CaseCyclingPublic::Application.routes.draw do
   match 'about' => 'about#index'
   match 'contact' => 'contact#new'
   match '/contact/create' => "contact#create"
-  get '/404', :to => "error#index"
+  match '/404', :to => "error#index"
   
   resources :routes
   # The priority is based upon order of creation:
