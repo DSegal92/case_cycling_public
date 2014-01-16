@@ -1,0 +1,44 @@
+
+        .error_message{
+            position: fixed;
+            background-color: rgba(0,0,0,.3);
+            padding-left: 20px;
+            padding-right: 20px;
+            border-radius: 10px;
+        }
+
+        .error_large{
+            font-family: 'Open Sans' sans-serif;
+            font-size: 48px;
+            color: white;
+
+        }
+
+        .error_small{
+            font-size: 'Open Sans' sans-serif;
+            font-size: 20px;
+            color: white;
+        }
+
+        .error_small a:link{
+            color:white;
+        }
+        .error_small a:visited{
+            color:white;
+        }
+
+        .error_small a:active{
+            color:white;
+        }
+
+        .error_small a:hover{
+            color: #428ce7;
+        }
+        .movie{
+            display:none;
+        }
+
+        #wrapper{
+
+            margin-bottom: 1000px;
+        }

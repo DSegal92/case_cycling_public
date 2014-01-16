@@ -1,94 +1,13 @@
-<!doctype html>
-<!--
-  ~ /*******************************************************************************
-  ~  jquery.mb.components
-  ~  file: demo_videoList.html
-  ~
-  ~  Copyright (c) 2001-2013. Matteo Bicocchi (Pupunzi);
-  ~  Open lab srl, Firenze - Italy
-  ~  email: matteo@open-lab.com
-  ~  site: 	http://pupunzi.com
-  ~  blog:	http://pupunzi.open-lab.com
-  ~ 	http://open-lab.com
-  ~
-  ~  Licences: MIT, GPL
-  ~  http://www.opensource.org/licenses/mit-license.php
-  ~  http://www.gnu.org/licenses/gpl.html
-  ~
-  ~  last modified: 02/10/13 22.42
-  ~  ******************************************************************************/
-  -->
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>youtube Chromeless Player - mb.YTPlayer</title>
-    <link href="/assets/YTPlayer.css" media="all" rel="stylesheet" type="text/css">
-
-    <link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
-    <style type="text/css">
-
-        .error_message{
-            position: fixed;
-            background-color: rgba(0,0,0,.3);
-            padding-left: 20px;
-            padding-right: 20px;
-            border-radius: 10px;
-        }
-
-        .error_large{
-            font-family: 'Open Sans' sans-serif;
-            font-size: 48px;
-            color: white;
-
-        }
-
-        .error_small{
-            font-size: 'Open Sans' sans-serif;
-            font-size: 20px;
-            color: white;
-        }
-
-        .error_small a:link{
-            color:white;
-        }
-        .error_small a:visited{
-            color:white;
-        }
-
-        .error_small a:active{
-            color:white;
-        }
-
-        .error_small a:hover{
-            color: #428ce7;
-        }
-        .movie{
-            display:none;
-        }
-
-        #wrapper{
-
-            margin-bottom: 1000px;
-        }
+<script type="text/javascript" src="/assets/jquery.mb.YTPlayer.js"></script>
+<script type="text/javascript">
+    jQuery(function(){
+      
+        jQuery("#bgndVideo").mb_YTPlayer();
+    $('html, body').delay(1000).animate({ scrollTop: 196 }, 1000);
+    });
+</script>
 
 
-    </style>
-
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script type="text/javascript" src="/assets/jquery.mb.YTPlayer.js"></script>
-    <script type="text/javascript">
-
-        jQuery(function(){
-          
-            jQuery("#bgndVideo").mb_YTPlayer();
-        $('html, body').delay(1000).animate({ scrollTop: 196 }, 1000);
-
-        });
-
-    </script>
-
-</head>
-<body>
 <div id="wrapper">
     <div class="grid_12">
             <div class="error_message">
@@ -98,11 +17,3 @@
    
     </div>
     <a id="bgndVideo" href="http://www.youtube.com/watch?v=_KOpOSkjImc" class="movie {opacity:1, isBgndMovie:{width:'window',mute:true}, optimizeDisplay:true, showControls:true, ratio:'4/3', loop: false, quality:'large',addRaster:true, lightCrop:false}"></a>
-
-
-
-</div>
-
-</body>
-
-</html>
