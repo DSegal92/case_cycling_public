@@ -4,6 +4,7 @@ gem 'rails', '3.2.12'
 gem 'kaminari'
 gem 'nokogiri'
 gem 'json'
+gem 'newrelic_rpm'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
