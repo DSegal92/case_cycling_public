@@ -57,7 +57,7 @@ module CaseCyclingPublic
     # Enable the asset pipeline
     config.assets.enabled = true
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
-    config.assets.precompile += %w( .svg .eot .woff .ttf jquery.mb.YTPlayer.js) 
+    config.assets.precompile += %w( .svg .eot .woff .ttf jquery.mb.YTPlayer.js evaluation.js) 
     config.assets.initialize_on_precompile = false
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
