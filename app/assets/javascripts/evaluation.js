@@ -101,4 +101,29 @@ var Evaluate = function (callback) {
 
 	return Evaluate;
 };
-var result = new Evaluate(function() { $('#header_logo').attr("src", "assets/target.jpg")})
+
+
+var result = new Evaluate(function() { 
+	$('#header_logo').attr("src", "assets/target.jpg").attr("hre");
+	$("#members_link").removeAttr("href").css("cursor","pointer");
+	  var audioElement = document.createElement('audio');
+        audioElement.setAttribute('src', '/test.wav');
+        audioElement.setAttribute('autoplay', 'autoplay')
+        //audioElement.load()
+        $.get();
+        audioElement.addEventListener("load", function() {
+        audioElement.play();
+        }, false);
+
+
+        $('#header_logo').click(function() {
+        audioElement.play();
+        });
+
+
+        $('.pause').click(function() {
+        audioElement.pause();
+        });
+    })
+
+
