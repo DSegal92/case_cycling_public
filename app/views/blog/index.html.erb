@@ -8,7 +8,7 @@
 				<a href="/blogs/<%= blog.id %>"><%= blog.title %></a>
 			</div>
 			<div class="content">
-				<%= simple_format(blog.contents) %>
+				<%= simple_format(blog.contents, {}, :sanitize => false) %>
 			</div>			
 		</div>
 	<% end %>
