@@ -43,26 +43,30 @@
 	<hr class="soften">
 </div>
 
-	<% @members.each do |m|%>
-	<% @mem = m %>
-	<div class="member grid_3">
-		<% if !@mem.picture_url.nil? %>
-				<img src=<%= @mem.picture_url%>>
-			<% if @mem.picture_url.empty? %>
-				<img src="/assets/default_pic.jpg">
+<% @members.each do |m|%>
+	<% unless m.picture_url.nil? %>
+		<% unless m.picture_url.empty?%>
+			<% unless Coach.find_by_name(m.name) %>
+				<div class="member grid_3">
+					<% if !m.picture_url.nil? %>
+							<img src=<%= m.picture_url%>>
+						<% if m.picture_url.empty? %>
+							<img src="/assets/default_pic.jpg">
+						<% end %>
+					<% else%>
+							<img src="/assets/default_pic.jpg">		
+					<% end %>
+					<br />
+					<ul class="unbulleted details">
+						<li>
+							<%= m.name %>
+						</li>
+					</ul>
+				</div>
 			<% end %>
-		<% else%>
-				<img src="/assets/default_pic.jpg">		
 		<% end %>
-		<br />
-		<ul class="unbulleted details">
-			<li>
-				<%= @mem.name %>
-			</li>
-		</ul>
-	</div>
 	<% end %>
-
+<% end %>
 
 
 <div class="member_section grid_12">
