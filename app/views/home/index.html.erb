@@ -44,6 +44,19 @@ jQuery(document).ready(function($) {
 	</div>
 </div>
 <div class="grid_4">
+	<% unless @events.empty? %>
+	<div class="events">
+		<span class="title">Upcoming Events</span>
+		<% @events.each do |e|	%>
+		<div class="event">
+			<p class="event_title"><%= e.name %></p>
+			<p><%= e.location%></p>
+			<p><%= e.date.strftime("%I:%M%p - %m/%d/%Y") %></p>
+			<br />
+		</div>
+		<% end %>
+	</div>
+	<% end %>
 	<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FCaseCycling&amp;width=310&amp;height=62&amp;colorscheme=light&amp;show_faces=false&amp;header=true&amp;stream=false&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:310px; height:62px;" allowTransparency="true"></iframe>
 
 	<br /> <br />
